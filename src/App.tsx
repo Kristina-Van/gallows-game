@@ -1,26 +1,35 @@
 import React from 'react';
-import logo from './logo.svg';
+import words from './Vocab.json'
 import './App.css';
+import {Hangman} from "./components/Hangman";
+import {Keyboard} from "./components/Keyboard";
+import {Word} from "./components/Word";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <div style={{
+            maxWidth: "800px",
+            display: "flex",
+            flexDirection: "column",
+            gap: "2rem",
+            margin: "0 auto",
+            alignItems: "center"
+        }}>
+            <div style={{
+                fontSize: "2rem",
+                textAlign: "center"
+            }}>
+            </div>
+            <Hangman/>
+            <Keyboard/>
+            <Word/>
+            <div style={{
+                alignSelf: "stretch"
+            }}>
+
+            </div>
+        </div>
+    );
 }
 
 export default App;
