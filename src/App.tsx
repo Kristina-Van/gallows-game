@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import words from './Vocab.json'
 import './App.css';
 import {Hangman} from "./components/Hangman";
@@ -6,6 +6,10 @@ import {Keyboard} from "./components/Keyboard";
 import {Word} from "./components/Word";
 
 function App() {
+    const [wordGuess, setWordGuess] = useState(() => {
+        Math.floor(Math.random()*words.length)
+    });
+    const [guessLetters, setGuessLetters] = useState<string[]>([]);
     return (
         <div style={{
             maxWidth: "800px",
@@ -21,8 +25,8 @@ function App() {
             }}>
             </div>
             <Hangman/>
-            <Keyboard/>
             <Word/>
+            <Keyboard/>
             <div style={{
                 alignSelf: "stretch"
             }}>

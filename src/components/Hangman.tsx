@@ -71,6 +71,7 @@ const rightLeg = (
             transformOrigin: "left bottom",
         }}
     />)
+const bodyParts = [head, body, rightArm, leftArm, rightLeg, leftLeg]
 export function Hangman() {
     return (
         <div style={{position: "relative"}}>
