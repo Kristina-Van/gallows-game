@@ -7,9 +7,10 @@ import {Word} from "./components/Word";
 
 function App() {
     const [wordGuess, setWordGuess] = useState(() => {
-        Math.floor(Math.random()*words.length)
+       return words[Math.floor(Math.random()*words.length)]
     });
     const [guessLetters, setGuessLetters] = useState<string[]>([]);
+    const wrongLetters = guessLetters.filter(letter => !wordGuess.includes(letter))
     return (
         <div style={{
             maxWidth: "800px",
@@ -26,12 +27,12 @@ function App() {
             </div>
             <Hangman/>
             <Word/>
-            <Keyboard/>
             <div style={{
                 alignSelf: "stretch"
             }}>
-
+                <Keyboard/>
             </div>
+
         </div>
     );
 }

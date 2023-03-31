@@ -71,8 +71,12 @@ const rightLeg = (
             transformOrigin: "left bottom",
         }}
     />)
-const bodyParts = [head, body, rightArm, leftArm, rightLeg, leftLeg]
-export function Hangman() {
+const bodyParts = [head, body, rightArm, leftArm, rightLeg, leftLeg];
+
+type HangmanProps = {
+    numberOfGuesses: number
+}
+export function Hangman({numberOfGuesses}: HangmanProps) {
     return (
         <div style={{position: "relative"}}>
             {head}
