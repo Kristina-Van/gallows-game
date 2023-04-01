@@ -15,7 +15,7 @@ function App() {
     const addGuessLetter = useCallback((letter: string) => {
         if (guessLetters.includes(letter))
             setGuessLetters(currentLetters => [...currentLetters, letter])
-    },[guessLetters])
+    }, [guessLetters])
 
     // function addGuessedLetter(letter: string) {
     //   if (guessLetters.includes(letter))
@@ -56,7 +56,9 @@ function App() {
             <div style={{
                 alignSelf: "stretch"
             }}>
-                <Keyboard/>
+                <Keyboard activeLetters={guessLetters.filter(letter => wordGuess.includes(letter))}
+                          inactiveLetters={wrongLetters}
+                          addGuessLetter={addGuessLetter}/>
             </div>
 
         </div>

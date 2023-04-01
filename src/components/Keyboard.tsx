@@ -26,7 +26,12 @@ const keys = [
     "y",
     "z",
 ]
-export function Keyboard(){
+type KeyboardProps = {
+    activeLetters: string[]
+    inactiveLetters: string[]
+    addGuessLetter: (letter: string) => void
+}
+export function Keyboard({activeLetters, inactiveLetters, addGuessLetter}: KeyboardProps){
     return(
         <div style={{
             display: "grid",
@@ -35,7 +40,14 @@ export function Keyboard(){
         }}>
             {keys.map((key) => {
                 return(
-                    <button key={key}>{key}</button>
+                    <button style={{
+                        fontSize:"2 rem",
+                        fontWeight:"bold",
+                        textTransform:"uppercase",
+                        fontFamily:"monospace",
+                        cursor:"pointer",
+                    }}
+                            key={key}>{key}</button>
                 )
             })}
         </div>
