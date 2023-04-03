@@ -1,3 +1,6 @@
+import {keyboard} from "@testing-library/user-event/dist/keyboard";
+import styles from "./Keyboard.module.css";
+
 const keys = [
     "a",
     "b",
@@ -40,15 +43,13 @@ export function Keyboard({activeLetters, inactiveLetters, addGuessLetter}: Keybo
             gap: ".5rem",
         }}>
             {keys.map((key) => {
+                const isActive = activeLetters.includes(key);
+                const isInActive = inactiveLetters.includes(key);
                 return (
                     <button onClick={() => addGuessLetter(key)}
-                        style={{
-                        fontSize: "2 rem",
-                        fontWeight: "bold",
-                        textTransform: "uppercase",
-                        fontFamily: "monospace",
-                        cursor: "pointer",
-                    }}
+                            className={`${styles.btn} ${isActive ? styles.active : ''}
+                            ${isInActive ? styles.inactive : ''}`}
+                            disabled={isActive || isInActive}
                             key={key}>{key}</button>
                 )
             })}
